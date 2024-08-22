@@ -1,6 +1,5 @@
 import numpy as np
 import time
-from tqdm import tqdm
 
 
 LINE_UP = '\033[1A'
@@ -423,22 +422,5 @@ class SnakeGame:
                     cluster_dict[int(cluster_matrix[i, j])].append((i, j))
         return cluster_dict
 
-#
-game = SnakeGame(n=10)
-reward_matrix = np.zeros((game.board.shape[0] * game.board.shape[1], 4, game.board.shape[0] * game.board.shape[1]))
-scores = []
-rewards = []
-for _ in tqdm(range(1000)):
-    game = SnakeGame(n=10)
-    while True:
-        check = game.train(reward_matrix)
-        if check == -1:
-            break
-        else:
-            rewards.append(check)
-    scores.append(game.snake_len)
 
-print("STARTING GAME")
-game = SnakeGame(10)
-game.start(reward_matrix)
-print(game.snake_len)
+
