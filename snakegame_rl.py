@@ -1,7 +1,5 @@
 import numpy as np
 import time
-
-from fontTools.otlLib.maxContextCalc import maxCtxFont
 from tqdm import tqdm
 
 
